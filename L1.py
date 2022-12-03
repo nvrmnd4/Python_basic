@@ -1,6 +1,5 @@
 # Лекция 1 30.11.2022
 
-
 print('Hello!')
 print('What is your name?')
 name = input()
