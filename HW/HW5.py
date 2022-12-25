@@ -1,8 +1,8 @@
 # ДОМАШНЕЕ ЗАДАНИЕ №5 Полищук Анастасия
 
 
-def Palindrome(filtered_word):
-    return filtered_word == filtered_word[::-1]
+def Palindrome(s):
+    return s == s[::-1]
 
 word_input = str(input("""Введите строку """))
 word_low = word_input.lower()
