@@ -1,19 +1,11 @@
 # ДОМАШНЕЕ ЗАДАНИЕ №5 Полищук Анастасия
 
+import math
+user_deg = float(input(""" Введите значение в градусах """))
+def radian(d):
+    rad = round(d * math.pi / 180, 5)
+    return rad
 
-def Palindrome(s):
-    return s == s[::-1]
-
-word_input = str(input("""Введите строку """))
-word_low = word_input.lower()
-word = word_low.replace("\n", "")
-filtered_word = word.replace(',', '').replace('.', '').replace('?', '').replace(';', '').replace('!','').replace(':', '').replace('-', '').replace("'", '').replace('"', '').replace(' ', '')
-
-final_word = Palindrome(filtered_word)
-
-if final_word:
-    print(f"Вы ввели {filtered_word}, это паллиндром")
-else:
-    print(f"Вы ввели {filtered_word}, это не является паллиндромом")
-
+result = radian(user_deg)
+print(f"Вы ввели {user_deg} градусов, это {result} радиан")
 
