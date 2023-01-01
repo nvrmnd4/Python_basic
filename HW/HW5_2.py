@@ -1,8 +1,11 @@
 # ДОМАШНЕЕ ЗАДАНИЕ №5 Полищук Анастасия
 
 def n():
-    a = int(input("""Введите первую сторону треугольника """))
-    return a
+    a = int(input("""Введите сторону треугольника """))
+    if a > 0:
+        return a
+    else:
+        raise ValueError
 
 def existance(a, b, c):
     if a + b > c and b + c > a and a + c > b:
