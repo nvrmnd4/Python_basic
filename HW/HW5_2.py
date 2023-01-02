@@ -1,16 +1,16 @@
 # ДОМАШНЕЕ ЗАДАНИЕ №5 Полищук Анастасия
 
-def n(a,b,c):
+def n():
     while True:
         try:
             a = int(input("""Введите сторону треугольника """))
-            if a > 0 and b > 0 and c > 0:
-                return a, b, c
+            if a > 0:
+                return a
             else:
-                print('Введите положительное число')
+                raise ValueError
+                break
         except Exception:
             print('Ваш запрос не подлежит обработке')
-
 
 def existance(a, b, c):
     if a + b > c and b + c > a and a + c > b:
