@@ -17,8 +17,8 @@ def empty(user_list: list):
 
 # Доп. часть задания -  Возвращает количество заметок, которое нужно вывести при выполнении earliest, latest, longest и shortest
 
-# Верхняя границу не поняла как задать, в плане, что  заметок написано 1-2 штуки,
-# а если попросить вывести 8, не выдает ошибку, а выдает эти 1-2, или это не надо?
+# Верхняя границу не поняла как задать, в плане, что допустим заметок написано 1-2 штуки,
+# а если попросить вывести 3 (или любое число больше), не выдает ошибку, а выдает эти 1-2 или это не надо?
 def q() -> int:
     while True:
         try:
@@ -58,22 +58,22 @@ def get_user_choice(keys: tuple):
                 for i in list_reverse[:n]:
                     print(f'{i}')
 
-        # longest - выводит заметки в порядке длины, от самой длинной до самой маленькой
+        # longest - выводит заметки от самой длинной до самой маленькой
         elif user == keys[3]:
             if empty(my_list):
                 n = q()
                 print('От самой длинной до самой короткой:')
-                longest_my_list = sorted(my_list, key=len, reverse=True)
-                for i in longest_my_list[:n]:
+                longest_list = sorted(my_list, key=len, reverse=True)
+                for i in longest_list[:n]:
                     print(f'{i}')
 
-        # shortest - выводит заметки в порядке длины, от самой маленькой до самой длинной
+        # shortest - выводит заметки от самой маленькой до самой длинной
         elif user == keys[4]:
             if empty(my_list):
                 n = q()
                 print('От самой маленькой до самой длинной:')
-                shortest_my_list = sorted(my_list, key=len, reverse=False)
-                for i in shortest_my_list[:n]:
+                shortest_list = sorted(my_list, key=len, reverse=False)
+                for i in shortest_list[:n]:
                     print(f'{i}')
 
         # vanish - очищает заметки
@@ -101,6 +101,6 @@ if __name__ == '__main__':
         'exit': '- выйти из программы'
     }
 
-    tuple_keys = menu(menu_d)  # меняем ключи для дальнейшей работы программы
-    get_user_choice(tuple_keys)  # работа программы уже с ключами
+    k = menu(menu_d)  # меняем ключи для дальнейшей работы программы
+    get_user_choice(k)  # работа программы уже с ключами
 
