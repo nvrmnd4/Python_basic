@@ -1,4 +1,5 @@
-from helper_functions import get_int_from_user
+
+
 
 # positioned - идут по порядку
 def get_float_from_user(comment: str, lower_bound: float = -9999999, upper_bound: float = 9999999) -> float:
