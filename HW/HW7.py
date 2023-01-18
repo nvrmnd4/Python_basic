@@ -110,7 +110,7 @@ def get_user_choice(keys: tuple, txt: list):
             final_l.clear()
             print('Заметки очищены')
 
-        #  save and exit - выходим из программы
+        #  save and exit - выходим из программы и записываем в файл, каждая заметка с новой строки
         elif user == keys[6]:
             with open('text_file.txt', mode='w', encoding='utf-8') as ff:
                 for element in final_l:
