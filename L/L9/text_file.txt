@@ -1,0 +1,7 @@
+this is a text file
+it will be read by python
+hello world
+it has lines
+rows
+and whatever
+don't use mode w unless you want to loose this file contents

@@ -12,7 +12,7 @@ for name, quantity in friend_fruits.items():
 print(our_fruits)
 
 # our_fruits = dict(my_fruits) тоже самое our_fruits_2 = {**my_fruits}
-
+# не совсем корректно работает, перетирает значения с одинаковыми ключами
 our_fruits_2 = {**my_fruits, **friend_fruits}
 for name, quantity in my_fruits.items():
     if name in friend_fruits:
