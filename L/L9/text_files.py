@@ -15,9 +15,8 @@ def read_file(filename: str):
     Функция читает текстовый файл, пользуясь встроенной функцией read
     :param filename: имя файла для чтения
     """
-    # with так делать нужно - автоматически вызывается "закрыватель файла", инфа из буфера попадает в файл
+    # так делать нужно - автоматически вызывается "закрыватель файла"
     # f = open(filename, mode='r') а вот так делать не рекомендуется
-
     with open(filename, mode='r') as f:
         # r - read, w - write, a - append
         print(f, type(f))
@@ -121,8 +120,8 @@ if __name__ == '__main__':
     text = '\n'.join(['first line', 'second line', 'well lets not count', 'last line!'])
     write_file('new_text_file.txt', text)
 
-    rewrite_file('text_file.txt.txt', 'text_file.txt (copy).txt')
+    rewrite_file('text_file.txt', 'text_file (copy).txt')
 
     writelines_file("new_text_file_lines.txt", ['first line\n', 'second line\n', 'well lets not count\n', 'last line!\n'])
 
-    write_append_file('text_file.txt.txt', text)
+    write_append_file('text_file.txt', text)
