@@ -116,7 +116,6 @@ def get_user_choice(keys: tuple, txt: list):
                 for element in final_l:
                     ff.write(element)
                     ff.write('\n')
-
             exit(0)
         else:
             print('Введите команду из списка!')
