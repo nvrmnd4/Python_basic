@@ -43,4 +43,4 @@
 
 
  # проверка что это выполняется даже когда файл импортируется
- # print(f'My file name is {__name__}')
+ # print(f'My file.txt name is {__name__}')

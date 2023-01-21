@@ -24,8 +24,8 @@ def read_file(filename: str):
         while x:
             print(x)
             x = f.read(10)
-        # EOF - end of file, служебный "невидимый" символ, натыкаясь на который, программа понимает что файл прочитан
-        print('file is over')
+        # EOF - end of file.txt, служебный "невидимый" символ, натыкаясь на который, программа понимает что файл прочитан
+        print('file.txt is over')
 
 
 def readlines_file(filename: str):
@@ -39,7 +39,7 @@ def readlines_file(filename: str):
             for word in line.split():
                 print(word.capitalize(), end='')
         print()
-        print('file is over')
+        print('file.txt is over')
 
 
 def readline_file(filename: str):
@@ -55,7 +55,7 @@ def readline_file(filename: str):
             print(x, end='')
             x = f.readline()
         print()
-        print('file is over')
+        print('file.txt is over')
 
 
 def write_file(filename: str, text_to_write: str):

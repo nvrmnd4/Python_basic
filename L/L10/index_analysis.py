@@ -1,6 +1,7 @@
 import json
 # unique user identification
 from uuid import uuid4
+import random
 
 
 def create_index(employee_uids: dict, index_key: str) -> dict:
@@ -34,7 +35,7 @@ if __name__ == '__main__':
         _id = f'{employee["name"]}{employee["surname"]}{employee["position"]}{employee["department"]}{employee["salary"]}'
         # максимально надёжный
         _uid = uuid4()
-        # сохраняем под уникальный айдишник полные данные о записи
+        # сохраняем под уникальный айдишник (uuid4()) полные данные о записи
         employee_ids_index[_uid] = employee
     print(employee_ids_index)
 
@@ -58,9 +59,7 @@ if __name__ == '__main__':
     for key, value in department_index.items():
         print(f'В отделе {key} работает {len(value)} людей')
 
-    # смотрим на конкретный отдел
-    for uid in department_index['HR']:
-        print(employee_ids_index[uid])
+
     # Сделать разбивку по должностям (position) внутри каждого отдела (department)
     # Сколько работает директоров в НR? Сколько работает инженеров в ресерче? И т.д.
     # Варианты решения
@@ -70,14 +69,35 @@ if __name__ == '__main__':
 # extracting and split name to first and last name via list comprehension
 # dopisat
 
+# Считает сколько должностей работает в запрашиваемом отделе
+def positions_in_department_view(employee_uids: dict, _department_index: dict, department_name: str, debug: bool = False):
+    """
+    Функция считает сколько должностей работает в запрашиваемом отделе
+    В возвращаемом словаре будут только те должности, которые есть в отделе
+    :param employee_uids: индекс сотрудников
+    :param _department_index: индекс отделов
+    :param department_name: имя запрашиваемого отдела
+    :param debug: флаг для проверки корректной работы
+    :return: словарь, где ключи -  представленные в отделе должности,  значения их популяция
+    """
+    print(f'Кто работает в отделе {department_name}')
+    positions_in_department = dict()
+    for uid in _department_index[department_name]:
+        if debug:
+            print(employee_uids[uid])
+        employee_position = employee_ids_index[uid]['position']
+        if employee_position in positions_in_department:
+            positions_in_department[employee_position] += 1
+        else:
+            positions_in_department[employee_position] = 1
+        return(positions_in_department)
 
 
 # list comprehension  когда нужно сделать более 1 списка - не эффективно
 positions = ['Enginner', 'Manager', 'Administrator', 'Director', 'Employee']
 departments = ['Security', 'Art', 'Economics', 'HR', 'Production', 'Research']
 
-first_names = set(list_of_first_names)
-last_names = set(list_of_last_names)
+
 
 NUM_EMPLOYEES = 100
 SALARY_LOWER_BOUND = 300
@@ -94,3 +114,9 @@ for i in range(NUM_EMPLOYEES):
     }
     json_object.append(d)
 json.dump({"data":json_object}, open('hr_department.json', 'w'), indent=4)
+
+
+# Смотрим на конкретный отдел
+
+for department_name in department_index.keys():
+    print(f'В отделе {department_name} работают такие должности: ', positions_in_departments)
