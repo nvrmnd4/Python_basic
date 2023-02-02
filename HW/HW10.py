@@ -89,5 +89,4 @@ if __name__ == '__main__':
 
     # Вывод сколько в каждой категории товаров разных брендов
     for category_name in dict_category.keys():
-        print(f'В категории {category_name}  доступно :',
-              brand(dict_uid, dict_category, category_name))
+        print(f'В категории {category_name}  доступно :', brand(dict_uid, dict_category, category_name))
