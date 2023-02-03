@@ -75,7 +75,7 @@ if __name__ == '__main__':
     for key, value in dict_category.items():
         print(f'В категории {key} есть {len(value)} товаров ')
 
-    # Вывод data про товары одного бренда и одной категории
+    # Вывод data про товары одного бренда
     print('Все товары Apple')
     key_brand = 'Apple'
     for elem in dict_brand[key_brand]:
